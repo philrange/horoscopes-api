@@ -34,6 +34,11 @@ public class DailyHoroscopes {
     }
 
     public String getHoroscopeTemplateById(Long id) {
-        return horoscopeTemplates.get(String.valueOf(id));
+        if (horoscopeTemplates.containsKey(String.valueOf(id))) {
+            return horoscopeTemplates.get(String.valueOf(id));
+        } else {
+            //todo - better error handling
+            return "farts - horoscope id " + id + " not found";
+        }
     }
 }
